@@ -140,6 +140,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="HW_26_4_Task_2.cpp" />
+    <ClCompile Include="Phone.cpp" />
+    <ClCompile Include="PhoneBook.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Phone.h" />
+    <ClInclude Include="PhoneBook.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
