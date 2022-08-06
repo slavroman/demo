@@ -3,8 +3,6 @@
 #include "Display.h"
 #include "Window.h"
 
-void clearScreen();
-
 int main()
 {
 	std::cout << "Task 3.\n";
@@ -25,8 +23,6 @@ int main()
 			std::cin >> input;
 		}
 
-		clearScreen();
-
 		if (input == "move")
 		{
 			Window1.moveWindow();
@@ -45,9 +41,4 @@ int main()
 	} while (input != "close");
 
 	return 0;
-}
-
-void clearScreen()
-{
-	std::cout << "\033[2J\033[1;1H";
 }
