@@ -1,10 +1,24 @@
 #pragma once
+#include <string>
+
+class ElfHouse
+{
+public:
+	ElfHouse();
+
+private:
+	int elfCount;
+	std::string elfName;
+};
 
 class Branch
 {
 public:
 
-private:
+	Branch* getTopBranch();
 
+private:
+	int largeBranch;
+	int midleBranch;
 };
 
