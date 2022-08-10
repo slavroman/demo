@@ -139,11 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Branch.cpp" />
+    <ClCompile Include="Wood.cpp" />
     <ClCompile Include="HW_27_4_Task_1.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Branch.h" />
+    <ClInclude Include="Wood.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

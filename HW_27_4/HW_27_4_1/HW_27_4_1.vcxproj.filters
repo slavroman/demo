@@ -18,12 +18,12 @@
     <ClCompile Include="HW_27_4_Task_1.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Branch.cpp">
+    <ClCompile Include="Wood.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Branch.h">
+    <ClInclude Include="Wood.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
