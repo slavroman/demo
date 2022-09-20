@@ -11,7 +11,6 @@ int main()
 {
 	std::srand((size_t)std::time(nullptr));
 
-
 	return 0;
 }
 
