@@ -5,7 +5,7 @@
 #include <string>
 #include <array>
 
-int randomInt(int, int);
+int randomInt(int min, int max);
 
 int main()
 {
