@@ -21,15 +21,9 @@
     <ClCompile Include="Branch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ElfHouse.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Branch.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ElfHouse.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
