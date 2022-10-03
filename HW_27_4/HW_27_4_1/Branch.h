@@ -6,11 +6,15 @@ class Branch
 {
 public:
     Branch();
+    ~Branch();
+
+    Branch* getTopBranch();
 
 private:
     std::string elfName;
-    bool tenant;
     Branch* parent;
-    std::vector<Branch*> children;
+    size_t childrensCount;
+    size_t neighbours;
+    std::vector<Branch*> childrens;
 };
 

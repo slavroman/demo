@@ -1,14 +1,26 @@
-#include "Branch.h"
 #include <iostream>
+#include "branch.h"
 
 Branch::Branch()
-    :elfName(" "), tenant(false), parent(nullptr)
+    : elfName("Unknown"), parent(nullptr), childrensCount(0), neighbours(0)
 {
-    std::cout << "Enter elf name: ";
-    std::cin >> elfName;
+}
 
-    if (elfName != "none" || elfName != " ")
+Branch::~Branch()
+{
+}
+
+Branch* Branch::getTopBranch()
+{
+    if (parent == nullptr)
     {
-        tenant = true;
+        return nullptr;
     }
+
+    if (parent->parent == nullptr)
+    {
+        return parent;
+    }
+    // if a small branch
+    return parent->getTopBranch();    
 }
