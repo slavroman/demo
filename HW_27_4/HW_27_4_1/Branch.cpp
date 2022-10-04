@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 #include <cassert>
 #include "branch.h"
 
@@ -24,6 +26,11 @@ void Branch::setElfName()
 
     assert(!name.empty());
     elfName = name;
+
+    if (elfName != "None" || elfName != "none")
+    {
+        neighbours++;
+    }
 }
 
 void Branch::setParent(Branch* ptrParent)
@@ -31,10 +38,10 @@ void Branch::setParent(Branch* ptrParent)
     parent = ptrParent;
 }
 
-void Branch::setNeighbours(size_t number)
-{
-    neighbours = number;
-}
+//void Branch::setNeighbours(size_t number)
+//{
+//    neighbours = number;
+//}
 
 void Branch::setChildrensCount(size_t number)
 {
