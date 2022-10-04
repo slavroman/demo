@@ -3,7 +3,7 @@
 #include <ctime>
 #include <cassert>
 #include <string>
-#include <array>
+#include <vector>
 #include "branch.h"
 
 int randomInt(int min, int max);
@@ -12,13 +12,13 @@ int main()
 {
 	std::srand((size_t)std::time(nullptr));
 
-	const int trees = 5;
+	const int treesCount = 5;
 
-	Branch Wood[trees];
+	Branch Tree[treesCount];
 
-	for (size_t i = 0; i < trees; i++)
+	for (size_t treeNumber = 0; treeNumber < treesCount; treeNumber++)
 	{
-
+		
 	}
 
 	return 0;
