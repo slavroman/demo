@@ -38,10 +38,10 @@ void Branch::setParent(Branch* ptrParent)
     parent = ptrParent;
 }
 
-//void Branch::setNeighbours(size_t number)
-//{
-//    neighbours = number;
-//}
+void Branch::setNeighbours(size_t number)
+{
+    neighbours = number;
+}
 
 void Branch::setChildrensCount(size_t number)
 {
@@ -53,7 +53,6 @@ Branch* Branch::getChild(size_t number)
     if (number < 0 || number >= childrens.size())
     {
         std::cerr << "The number is out of range!!!\n";
-        return;
     }
 
     return childrens[number];

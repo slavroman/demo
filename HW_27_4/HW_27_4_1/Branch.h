@@ -12,7 +12,7 @@ public:
     void addChild(Branch*);
     void setElfName();
     void setParent(Branch*);
-    /*void setNeighbours(size_t);*/
+    void setNeighbours(size_t);
     void setChildrensCount(size_t);
 
     Branch*     getChild(size_t);
