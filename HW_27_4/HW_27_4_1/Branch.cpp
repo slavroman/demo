@@ -4,6 +4,11 @@
 
 
 
+Branch::Branch()
+    : elfName("none"), parent(nullptr)
+{
+}
+
 Branch* Branch::getTopBranch()
 {
     if (parent == nullptr)
