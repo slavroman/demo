@@ -1,90 +1,72 @@
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
 #include <cassert>
 #include "branch.h"
 
 Branch::Branch()
-    : elfName("Unknown"), parent(nullptr), childrensCount(0), neighbours(0)
+    : m_name("None"), m_parent(nullptr), m_nonEmptyHousesOnBranch(0)
 {
+}
+
+void Branch::setName()
+{
+    std::string elfName{ "" };
+
+    std::cout << "Please input elf name:\n";
+    std::cin >> elfName;
+
+    while (elfName.empty())
+    {
+        std::cout << "The elf's name couldn't be empty! Try again:\n";
+        std::cin >> elfName;
+    }
+
+    if (elfName != "None" || elfName != "none")
+    {
+        m_name = elfName;
+    }
+}
+
+void Branch::setParrent(Branch* parrent)
+{
+    m_parent = parrent;
 }
 
 void Branch::addChild(Branch* child)
 {
-    childrens.push_back(child);
+    m_childrens.push_back(child);
 }
 
-void Branch::setElfName()
+std::string Branch::getName()
 {
-    std::string name = "";
-    std::cout << "Please enter elf's name:\n";
-    std::cin >> name;
+    return m_name;
+}
 
-    assert(!name.empty());
-    elfName = name;
-
-    if (elfName != "None" || elfName != "none")
+size_t Branch::getCountOfNonEmptyHousesOnBranch()
+{
+    for (const auto& it : m_childrens)
     {
-        neighbours++;
-    }
-}
+        if (it->getName() != "None")
+        {
+            m_nonEmptyHousesOnBranch++;
+        }
+    };
 
-void Branch::setParent(Branch* ptrParent)
-{
-    parent = ptrParent;
-}
-
-void Branch::setNeighbours(size_t number)
-{
-    neighbours = number;
-}
-
-void Branch::setChildrensCount(size_t number)
-{
-    childrensCount = number;
-}
-
-Branch* Branch::getChild(size_t number)
-{
-    if (number < 0 || number >= childrens.size())
-    {
-        std::cerr << "The number is out of range!!!\n";
-    }
-
-    return childrens[number];
-}
-
-std::string Branch::getElfName()
-{
-    return elfName;
-}
-
-Branch* Branch::getParent()
-{
-    return parent;
-}
-
-size_t Branch::getNeighbours()
-{
-    return neighbours;
-}
-
-size_t Branch::getChildrensCount()
-{
-    return childrensCount;
+    return m_nonEmptyHousesOnBranch;
 }
 
 Branch* Branch::getTopBranch()
 {
-    if (parent == nullptr)
+    // if tree
+    if (m_parent == nullptr)
     {
         return nullptr;
     }
 
-    if (parent->parent == nullptr)
+    // if a middle branch
+    if (m_parent->m_parent == nullptr)
     {
-        return parent;
+        return m_parent;
     }
     // if a small branch
-    return parent->getTopBranch();    
+    return m_parent->getTopBranch();    
 }
