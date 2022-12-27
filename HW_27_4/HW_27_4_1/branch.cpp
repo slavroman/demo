@@ -20,7 +20,7 @@ void Branch::setName()
         std::cin >> elfName;
     }
 
-    if (elfName != "None" || elfName != "none")
+    if (elfName != "None" && elfName != "none")
     {
         m_name = elfName;
     }
@@ -39,6 +39,11 @@ void Branch::addChild(Branch* child)
 std::string Branch::getName()
 {
     return m_name;
+}
+
+size_t Branch::getChildrensCount()
+{
+    return m_childrens.size();
 }
 
 size_t Branch::getCountOfNonEmptyHousesOnBranch()
