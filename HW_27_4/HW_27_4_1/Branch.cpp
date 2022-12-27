@@ -41,6 +41,11 @@ std::string Branch::getName()
     return m_name;
 }
 
+size_t Branch::getChildrensCount()
+{
+    return m_childrens.size();
+}
+
 size_t Branch::getCountOfNonEmptyHousesOnBranch()
 {
     for (const auto& it : m_childrens)

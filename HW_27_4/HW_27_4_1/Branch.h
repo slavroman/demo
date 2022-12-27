@@ -12,7 +12,8 @@ public:
     void setParrent(Branch* parrent);
     void addChild(Branch*);
 
-    std::string getName();   
+    std::string getName();
+    size_t getChildrensCount();
     size_t      getCountOfNonEmptyHousesOnBranch();
     Branch*     getTopBranch();
 

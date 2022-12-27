@@ -36,12 +36,14 @@ int main()
 	std::string elfNameToFind = "";
 	std::cout << "Please input elf name to find:\n";
 	std::cin >> elfNameToFind;
+	Branch* currentParent = nullptr;
 	size_t neighbours = 0;
 	bool found = false;
 
+	// TODO: fix find block or replace it to class
 	for (size_t itTree = 0; itTree < treesCount && !found; itTree++)
 	{
-		while (tree[itTree].getTopBranch())
+		while (currentParent != tree[itTree].getTopBranch())
 		{
 			neighbours += tree[itTree].getCountOfNonEmptyHousesOnBranch();
 
