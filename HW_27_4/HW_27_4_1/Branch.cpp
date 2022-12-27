@@ -20,7 +20,7 @@ void Branch::setName()
         std::cin >> elfName;
     }
 
-    if (elfName != "None" || elfName != "none")
+    if (elfName != "None" && elfName != "none")
     {
         m_name = elfName;
     }

@@ -11,15 +11,17 @@ int main()
 {
 	std::srand((size_t)std::time(nullptr));
 
-	Branch tree[5];
+	const size_t treesCount = 1; // do not forget to correct by 5
+	Branch tree[treesCount];
 
-	for (size_t itTree = 0; itTree < 5; itTree++)
+	for (size_t itTree = 0; itTree < treesCount; itTree++)
 	{
 		for (size_t itBigBranch = 0; itBigBranch < randomInit(3, 5); itBigBranch++)
 		{
 			auto bigBranch = new Branch;
 			bigBranch->setName();
 			bigBranch->setParrent(&tree[itTree]);
+			tree[itTree].addChild(bigBranch);
 
 			for (size_t itMiddleBranch = 0; itMiddleBranch < randomInit(2, 3); itMiddleBranch++)
 			{
@@ -27,9 +29,7 @@ int main()
 				middleBranch->setName();
 				middleBranch->setParrent(bigBranch);
 				bigBranch->addChild(middleBranch);
-			}
-
-			tree[itTree].addChild(bigBranch);
+			}			
 		}		
 	}
 
@@ -39,7 +39,7 @@ int main()
 	size_t neighbours = 0;
 	bool found = false;
 
-	for (size_t itTree = 0; itTree < 5 && !found; itTree++)
+	for (size_t itTree = 0; itTree < treesCount && !found; itTree++)
 	{
 		while (tree[itTree].getTopBranch())
 		{
