@@ -6,20 +6,15 @@
 class Branch
 {
 public:
-    Branch();
-    
-    void setName();
-    void setParrent(Branch* parrent);
-    void addChild(Branch*);
+    Branch();    
+   
+    size_t randomInit(const size_t, const size_t);
+    void getChild();
+    bool branchFinder(std::string);
 
-    std::string getName();
-    size_t getChildrensCount();
-    size_t      getCountOfNonEmptyHousesOnBranch();
-    Branch*     getTopBranch();
-
-private:
+private:    
     std::string          m_name;
-    Branch*              m_parent;
-    size_t               m_nonEmptyHousesOnBranch;
+    bool                 m_tenant;
+    bool                 m_parent;
     std::vector<Branch*> m_childrens;
 };

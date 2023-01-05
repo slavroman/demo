@@ -1,77 +1,68 @@
-#include <iostream>
-#include <cassert>
 #include "branch.h"
+#include <iostream>
+#include <ctime>
 
 Branch::Branch()
-    : m_name("None"), m_parent(nullptr), m_nonEmptyHousesOnBranch(0)
+    : m_name("None"), m_tenant(false), m_parent(false)
 {
-}
+    std::cout << "Enter elf name:\n";
+    std::cin >> m_name;
 
-void Branch::setName()
-{
-    std::string elfName{ "" };
-
-    std::cout << "Please input elf name:\n";
-    std::cin >> elfName;
-
-    while (elfName.empty())
+    while (m_name.empty())
     {
         std::cout << "The elf's name couldn't be empty! Try again:\n";
-        std::cin >> elfName;
+        std::cin >> m_name;
     }
 
-    if (elfName != "None" && elfName != "none")
+    if (m_name != "None" && m_name != "none")
     {
-        m_name = elfName;
+        m_tenant = true;
     }
 }
 
-void Branch::setParrent(Branch* parrent)
+size_t Branch::randomInit(const size_t min, const size_t max)
 {
-    m_parent = parrent;
+    return (min + (rand() % static_cast<int>(max - min + 1)));
 }
 
-void Branch::addChild(Branch* child)
+void Branch::getChild()
 {
-    m_childrens.push_back(child);
-}
-
-std::string Branch::getName()
-{
-    return m_name;
-}
-
-size_t Branch::getChildrensCount()
-{
-    return m_childrens.size();
-}
-
-size_t Branch::getCountOfNonEmptyHousesOnBranch()
-{
-    for (const auto& it : m_childrens)
+    if (this->m_parent == false)
     {
-        if (it->getName() != "None")
+        for (size_t i = 0; i < randomInit(2, 3); ++i)
         {
-            m_nonEmptyHousesOnBranch++;
+            Branch* middleBranch = new Branch;
+            middleBranch->m_parent = true;
+            m_childrens.push_back(middleBranch);
         }
-    };
-
-    return m_nonEmptyHousesOnBranch;
+    }
 }
 
-Branch* Branch::getTopBranch()
+bool Branch::branchFinder(std::string request)
 {
-    // if tree
-    if (m_parent == nullptr)
+    if (request == this->m_name)
     {
-        return nullptr;
+        std::cout << request << " have " << this->m_childrens.size() + 1 << " neighbors" << std::endl;
+        return true;
     }
 
-    // if a middle branch
-    if (m_parent->m_parent == nullptr)
+    for (size_t i = 0; i < m_childrens.size(); ++i)
     {
-        return m_parent;
+        if (request == m_childrens[i]->m_name)
+        {
+            if (this->m_tenant)
+            {
+                std::cout << request << " have " << this->m_childrens.size() + 1 << " neighbors" << std::endl;
+                return true;
+            }
+            else
+            {
+                std::cout << request << " have " << this->m_childrens.size() << " neighbors" << std::endl;
+                return true;
+            }
+        }
     }
-    // if a small branch
-    return m_parent->getTopBranch();    
+
+    return false;
 }
+
