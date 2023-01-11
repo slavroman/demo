@@ -1,3 +1,4 @@
+#include "Node.h"
 #include <iostream>
 #include <ctime>
 
@@ -7,6 +8,7 @@ int main()
 {
 	std::srand((size_t)std::time(nullptr));
 
+	std::shared_ptr<Node> tree = std::make_shared<Node>();
 	
 	
 
