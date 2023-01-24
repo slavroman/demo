@@ -54,6 +54,13 @@ size_t Node::getNeighboursCount()
 	return m_neighboursCount;
 }
 
+void Node::printTree()
+{
+	std::cout << m_name << "\n";
+	printSubtree("");
+	std::cout << "\n";
+}
+
 void Node::printSubtree(const std::string& prefix)
 {
 	if (m_childNodes.empty())
@@ -88,11 +95,4 @@ void Node::printSubtree(const std::string& prefix)
 			obj->printSubtree(prefix + "\t");
 		}
 	}
-}
-
-void Node::printTree()
-{
-	std::cout << m_name << "\n";
-	printSubtree("");
-	std::cout << "\n";
 }

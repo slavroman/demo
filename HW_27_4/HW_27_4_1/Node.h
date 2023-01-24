@@ -16,8 +16,7 @@ public:
 	std::string getName();
 	std::shared_ptr<Node> getParrent();
 	size_t getNeighboursCount();
-
-	void printSubtree(const std::string&);
+		
 	void printTree();
 
 private:
@@ -25,5 +24,6 @@ private:
 	std::shared_ptr<Node> m_parrent;
 	size_t m_neighboursCount;
 	std::vector<std::shared_ptr<Node>> m_childNodes;
+	void printSubtree(const std::string&);
 };
 
