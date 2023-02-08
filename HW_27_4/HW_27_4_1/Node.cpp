@@ -23,11 +23,12 @@ void Node::setName()
 		std::cin >> input;
 	}
 
-	if (input != "None" && input != "none")
+	if (input == "None" || input == "none")
 	{
-		m_name = input;
-		m_neighboursCount++;
-	}
+		return;
+	}	
+	
+	m_name = input;
 }
 
 //void Node::setParent(std::shared_ptr<Node> parrent)
@@ -50,65 +51,56 @@ std::string Node::getName()
 //	return m_parent;
 //}
 
-//size_t Node::getNeighboursCount()
-//{
-//	return m_neighboursCount;
-//}
-
-void Node::findInTree()
+size_t Node::getNeighboursCount()
 {
-	std::string stringToFind = "";
-	std::cout << "Please input elf name:\n";
-	std::cin >> stringToFind;
+	size_t idx = 0;
 
-	while (stringToFind.empty() && stringToFind == "None" && stringToFind == "none")
+	for (std::vector<std::shared_ptr<Node>>::iterator it = m_childNodes.begin(); it != m_childNodes.end(); ++it)
 	{
-		std::cout << "Incorrect input, please try again.\n";
-		std::cin >> stringToFind;
-	}
+		if ((*it)->getName() != "None")
+		{
+			idx++;
+		}		
+	}	
+	
+	m_neighboursCount = idx;
 
-	findInSubtree(stringToFind);
-	std::cout << "\n";
+	return m_neighboursCount;
+}
+
+void Node::findInTree(bool& found, const std::string& current)
+{
+	if (m_childNodes.empty() && m_name == current)
+	{
+		std::cout << "Elf " << m_name << " found and have " << m_neighboursCount << " neighbours.\n";
+		found = true;
+		return;
+	}
+	else
+	{
+		for (size_t i = 0; i < m_childNodes.size(); ++i)
+		{
+			std::shared_ptr<Node> target = m_childNodes[i];
+
+			if (target->m_name == current)
+			{
+				std::cout << "Elf " << target->getName() << " found and have " << target->getNeighboursCount() << " neighbours.\n";
+				found = true;
+				return;
+			}
+			else
+			{
+				target->findInTree(found, current);
+			}
+		}
+	}
 }
 
 void Node::printTree()
 {
-	std::cout << m_name << "\n";
+	std::cout << /*"Root"*/m_name << "\n";
 	printSubtree("");
 	std::cout << "\n";
-}
-
-void Node::findInSubtree(const std::string& current)
-{
-	// TODO: need fix this function!!!
-
-	if (m_childNodes.empty())
-	{
-		return;
-	}
-
-	size_t childrensCount = m_childNodes.size();
-
-	for (size_t i = 0; i < childrensCount; ++i)
-	{
-		std::shared_ptr<Node> obj = m_childNodes[i];
-
-		if (obj->m_name == current)
-		{
-			std::cout << "Elf " << current << " found and have " << obj->m_neighboursCount - 1 << " nieghbors\n";
-			return;
-		}
-		else
-		{
-			if (obj->m_neighboursCount == 0)
-			{
-				std::cout << "Elf not found!\n";
-				return;
-			}
-
-			obj->findInSubtree(current);
-		}
-	}
 }
 
 void Node::printSubtree(const std::string& prefix)
@@ -125,6 +117,7 @@ void Node::printSubtree(const std::string& prefix)
 	for (size_t i = 0; i < childrensCount; ++i)
 	{
 		std::shared_ptr<Node> obj = m_childNodes[i];
+		obj->getNeighboursCount();
 
 		if (i < childrensCount - 1)
 		{
@@ -135,13 +128,13 @@ void Node::printSubtree(const std::string& prefix)
 
 			bool printStrand = childrensCount > 1 && !obj->m_childNodes.empty();
 			std::string newPrefix = prefix + (printStrand ? "|\t" : "\t");
-			std::cout << obj->m_name << "\n";
+			std::cout << obj->m_name << "(" << obj->m_neighboursCount << ")\n";
 			obj->printSubtree(newPrefix);
 		}
 		else
 		{
 			std::cout << (childrensCount > 1 ? prefix : "") << "------> ";
-			std::cout << obj->m_name << "\n";
+			std::cout << obj->m_name << "(" << obj->m_neighboursCount << ")\n";
 			obj->printSubtree(prefix + "\t");
 		}
 	}
