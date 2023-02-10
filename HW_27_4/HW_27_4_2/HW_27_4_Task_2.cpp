@@ -1,3 +1,4 @@
+#include "BaseFigure.h"
 #include <iostream>
 
 int main()
