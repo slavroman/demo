@@ -6,6 +6,8 @@ size_t randomInit(const size_t, const size_t);
 
 int main()
 {
+	std::cout << "Task 1.\n";
+
 	std::srand((size_t)std::time(nullptr));
 
 	std::vector<Node> trees(5);
