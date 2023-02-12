@@ -1,21 +1,19 @@
 #pragma once
+#include <string>
 
 class BaseFigure
 {
 public:
-
-	enum class Color
-	{
-		COLOR_NONE,
-		COLOR_RED,
-		COLOR_BLUE,
-		COLOR_GREEN
-	};
-
 	BaseFigure();
-	~BaseFigure();
+	virtual ~BaseFigure();
 
-private:
-	double mCenter; // x,y
+	void setName(const std::string);
+	void setColor(const size_t);
+	
+	virtual double getSquare() = 0;
+	virtual void printFigure() = 0;
+
+	std::string mName;	
 	size_t mColor;
+	double mCenter; // x,y
 };
