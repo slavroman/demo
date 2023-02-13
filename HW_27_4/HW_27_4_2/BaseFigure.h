@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <vector>
 
 class BaseFigure
 {
@@ -9,11 +10,13 @@ public:
 
 	void setName(const std::string);
 	void setColor(const size_t);
+	void printFigure();	
 	
-	virtual double getSquare() = 0;
-	virtual void printFigure() = 0;
+	virtual void getSquare() = 0;
+	
 
-	std::string mName;	
+	std::string mType;	
 	size_t mColor;
-	double mCenter; // x,y
+	double mSquare;
+	//double mCenter; // x,y
 };

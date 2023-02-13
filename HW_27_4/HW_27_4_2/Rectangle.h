@@ -1,16 +1,17 @@
 #pragma once
 #include "BaseFigure.h"
 
-class Circle :
+class Rectangle :
     public BaseFigure
 {
 public:
-    Circle(double);
-    ~Circle();
+    Rectangle(double, double);
+    ~Rectangle();
 
     void getSquare() override;
 
 private:
-    double mRadius;
+    double mHeight;
+    double mWidth;
 };
 

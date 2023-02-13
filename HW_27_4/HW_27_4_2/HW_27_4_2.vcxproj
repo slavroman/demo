@@ -143,10 +143,14 @@
     <ClCompile Include="BaseFigure.cpp" />
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="HW_27_4_Task_2.cpp" />
+    <ClCompile Include="Rectangle.cpp" />
+    <ClCompile Include="Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseFigure.h" />
     <ClInclude Include="Circle.h" />
+    <ClInclude Include="Rectangle.h" />
+    <ClInclude Include="Triangle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
