@@ -5,10 +5,10 @@ class Circle :
     public BaseFigure
 {
 public:
-    Circle(double);
+    Circle(std::string, std::string, double);
     ~Circle();
 
-    void getSquare() override;
+    void getSquare() override;    
 
 private:
     double mRadius;

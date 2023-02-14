@@ -5,9 +5,10 @@ class Triangle :
     public BaseFigure
 {
 public:
-    Triangle(double);
+    Triangle(std::string, std::string, double);
     ~Triangle();
 
+    double getBisectrix();
     void getSquare() override;
 
 private:

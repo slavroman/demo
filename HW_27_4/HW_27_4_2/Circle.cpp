@@ -1,8 +1,8 @@
 #include "Circle.h"
 #include <iostream>
 
-Circle::Circle(double radius)
-    : mRadius(radius)
+Circle::Circle(std::string name, std::string color, double radius)
+    : BaseFigure(name, color), mRadius(radius)
 {
 }
 

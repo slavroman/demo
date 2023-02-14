@@ -5,10 +5,11 @@ class Rectangle :
     public BaseFigure
 {
 public:
-    Rectangle(double, double);
+    Rectangle(std::string, std::string, double, double);
     ~Rectangle();
 
     void getSquare() override;
+    void printFigure() override;
 
 private:
     double mHeight;

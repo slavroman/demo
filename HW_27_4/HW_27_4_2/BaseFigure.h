@@ -4,19 +4,15 @@
 
 class BaseFigure
 {
-public:
-	BaseFigure();
+public:	
+	BaseFigure(std::string, std::string);
 	virtual ~BaseFigure();
-
-	void setName(const std::string);
-	void setColor(const size_t);
-	void printFigure();	
-	
+				
 	virtual void getSquare() = 0;
-	
+	virtual void printFigure();	
 
 	std::string mType;	
-	size_t mColor;
+	std::string mColor;
 	double mSquare;
 	//double mCenter; // x,y
 };

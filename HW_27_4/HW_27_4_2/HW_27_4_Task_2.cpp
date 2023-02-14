@@ -4,82 +4,101 @@
 #include <iostream>
 #include <memory>
 
-// TODO: Need change main logic!!!
-
-enum class Figure
-{
-	FIGURE_CIRCLE = 1,
-	FIGURE_SQUARE,
-	FIGURE_TRIANGLE,
-	FIGURE_RECTANGLE
-};
-
-enum class Color
-{
-	COLOR_NONE,
-	COLOR_RED,
-	COLOR_BLUE,
-	COLOR_GREEN
-};
+void setColor(std::string&);
 
 int main()
 {
 	std::cout << "Task 2.\n";
 
-	int answer = 0;
-	std::cout << "Please input figure type:\n"
-			  << "1 - Circle\n"
-			  << "2 - Square\n"
-			  << "3 - Triangle\n"
-			  << "4 - Rectangle\n";
-	std::cin >> answer;
+	const auto factor = 0.5;
+	std::string type = "";
+	std::string outerRectangle = "outer rectangle";
+	std::string color = "";
 
-	while (answer < 1 && answer > 4)
+	do
 	{
-		std::cout << "Incorrect input please try again!\n";
-		std::cin >> answer;
-	}
-		
-	switch (answer)
-	{
-		case 1:
+		std::cout << "\nPlease input command (circle, square, triangle or rectangle) "
+		          << "or exit for end program:\n";
+		std::cin >> type;
+
+		while (type != "circle" && type != "square"
+			&& type != "triangle" && type != "rectangle"
+			&& type != "exit")
+		{
+			std::cout << "Incorrect input please try again!\n";
+			std::cin >> type;
+		}
+
+		if (type == "circle")
 		{
 			std::cout << "Please input radius of circle:\n";
 			double radius;
 			std::cin >> radius;
-			auto ptrCircle = std::make_shared<Circle>(radius);
-			break;
-		}			
-		case 2:
+			setColor(color);
+			auto ptrCircle = std::make_shared<Circle>(type, color, radius);
+			ptrCircle->getSquare();
+			ptrCircle->printFigure();
+
+			auto ptrOuterRectangle = std::make_shared<Rectangle>(outerRectangle, "", radius + factor, radius + factor);
+			ptrOuterRectangle->printFigure();			
+		}
+
+		if (type == "square")
 		{
 			std::cout << "Please side of square:\n";
 			double side;
 			std::cin >> side;
-			auto ptrSquare = std::make_shared<Rectangle>(side, side);
-			break;
-		}			
-		case 3:
+			setColor(color);
+			auto ptrSquare = std::make_shared<Rectangle>(type, color, side, side);
+			ptrSquare->getSquare();
+			ptrSquare->printFigure();			
+			
+			auto ptrOuterRectangle = std::make_shared<Rectangle>(outerRectangle, "", side + factor, side + factor);
+			ptrOuterRectangle->printFigure();			
+		}
+
+		if (type == "triangle")
 		{
 			std::cout << "Please side of triangle:\n";
 			double side;
 			std::cin >> side;
-			auto ptrTriangle = std::make_shared<Triangle>(side);
-			break;
-		}			
-		case 4:
+			setColor(color);
+			auto ptrTriangle = std::make_shared<Triangle>(type, color, side);
+			ptrTriangle->getSquare();
+			ptrTriangle->printFigure();			
+
+			double bisectrix = ptrTriangle->getBisectrix();
+			auto ptrOuterRectangle = std::make_shared<Rectangle>(outerRectangle, "", bisectrix + factor, side + factor);
+			ptrOuterRectangle->printFigure();			
+		}
+
+		if (type == "rectangle")
 		{
 			std::cout << "Please input height and width of rectangle:\n";
-			double height = 0.0, width = 0.0;
+			double height, width;
 			std::cin >> height >> width;
-			auto ptrRectangle = std::make_shared<Rectangle>(height, width);
-			break;
-		}			
-	}
+			setColor(color);
+			auto ptrRectangle = std::make_shared<Rectangle>(type, color, height, width);
+			ptrRectangle->getSquare();
+			ptrRectangle->printFigure();			
+			
+			auto ptrOuterRectangle = std::make_shared<Rectangle>(outerRectangle, "", height + factor, width + factor);
+			ptrOuterRectangle->printFigure();			
+		}
 
-		
-
-	
-
+	} while (type != "exit");
 	
 	return 0;
+}
+
+void setColor(std::string& str)
+{
+	std::cout << "Please figure color (red, blue or green):\n";
+	std::cin >> str;
+
+	while (str != "red" && str != "blue" && str != "green")
+	{
+		std::cout << "Incorrect input please try again!\n";
+		std::cin >> str;
+	}	
 }
