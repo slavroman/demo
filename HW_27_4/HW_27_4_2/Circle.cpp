@@ -14,3 +14,9 @@ void Circle::getSquare()
 {
     mSquare = mRadius * mRadius * 3.14;
 }
+
+void Circle::getBoundaryBox(const double factor)
+{
+    mBoundaryHeight = mRadius + factor;
+    mBoundaryWidth = mRadius + factor;
+}

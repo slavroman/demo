@@ -12,7 +12,6 @@ int main()
 
 	const auto factor = 0.5;
 	std::string type = "";
-	std::string outerRectangle = "outer rectangle";
 	std::string color = "";
 
 	do
@@ -38,9 +37,8 @@ int main()
 			auto ptrCircle = std::make_shared<Circle>(type, color, radius);
 			ptrCircle->getSquare();
 			ptrCircle->printFigure();
-
-			auto ptrOuterRectangle = std::make_shared<Rectangle>(outerRectangle, "", radius + factor, radius + factor);
-			ptrOuterRectangle->printFigure();			
+			ptrCircle->getBoundaryBox(factor);
+			ptrCircle->printBoundaryFigure();	
 		}
 
 		if (type == "square")
@@ -52,9 +50,8 @@ int main()
 			auto ptrSquare = std::make_shared<Rectangle>(type, color, side, side);
 			ptrSquare->getSquare();
 			ptrSquare->printFigure();			
-			
-			auto ptrOuterRectangle = std::make_shared<Rectangle>(outerRectangle, "", side + factor, side + factor);
-			ptrOuterRectangle->printFigure();			
+			ptrSquare->getBoundaryBox(factor);
+			ptrSquare->printBoundaryFigure();
 		}
 
 		if (type == "triangle")
@@ -66,10 +63,8 @@ int main()
 			auto ptrTriangle = std::make_shared<Triangle>(type, color, side);
 			ptrTriangle->getSquare();
 			ptrTriangle->printFigure();			
-
-			double bisectrix = ptrTriangle->getBisectrix();
-			auto ptrOuterRectangle = std::make_shared<Rectangle>(outerRectangle, "", bisectrix + factor, side + factor);
-			ptrOuterRectangle->printFigure();			
+			ptrTriangle->getBoundaryBox(factor);
+			ptrTriangle->printBoundaryFigure();
 		}
 
 		if (type == "rectangle")
@@ -81,9 +76,8 @@ int main()
 			auto ptrRectangle = std::make_shared<Rectangle>(type, color, height, width);
 			ptrRectangle->getSquare();
 			ptrRectangle->printFigure();			
-			
-			auto ptrOuterRectangle = std::make_shared<Rectangle>(outerRectangle, "", height + factor, width + factor);
-			ptrOuterRectangle->printFigure();			
+			ptrRectangle->getBoundaryBox(factor);
+			ptrRectangle->printBoundaryFigure();
 		}
 
 	} while (type != "exit");

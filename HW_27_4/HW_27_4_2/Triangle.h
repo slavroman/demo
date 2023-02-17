@@ -7,12 +7,11 @@ class Triangle :
 public:
     Triangle(std::string, std::string, double);
     ~Triangle();
-
-    double getBisectrix();
+    
     void getSquare() override;
+    void getBoundaryBox(const double) override;
 
 private:
     double mSideLength;
     double mBisectrix;
 };
-

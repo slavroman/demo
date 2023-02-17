@@ -4,12 +4,12 @@
 class Rectangle :
     public BaseFigure
 {
-public:
+public:    
     Rectangle(std::string, std::string, double, double);
     ~Rectangle();
-
+    
     void getSquare() override;
-    void printFigure() override;
+    void getBoundaryBox(const double) override;
 
 private:
     double mHeight;

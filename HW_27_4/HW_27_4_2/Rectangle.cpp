@@ -15,21 +15,8 @@ void Rectangle::getSquare()
 	mSquare = mHeight * mWidth;
 }
 
-void Rectangle::printFigure()
+void Rectangle::getBoundaryBox(const double factor)
 {
-	if (mColor.empty())
-	{
-		std::cout << "\n  Name: " << mType
-			      << "\nHeight: " << mHeight
-			      << "\n Width: " << mWidth
-			      << std::endl;
-	}
-	else
-	{
-		std::cout << "\n  Name: " << mType
-			<< "\n Color: " << mColor
-			<< "\nSquare: " << mSquare
-			<< std::endl;
-
-	}	
+	mBoundaryHeight = mHeight + factor;
+	mBoundaryWidth = mWidth + factor;
 }

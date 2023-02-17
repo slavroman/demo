@@ -10,12 +10,13 @@ Triangle::~Triangle()
 {
 }
 
-double Triangle::getBisectrix()
-{
-	return mBisectrix;
-}
-
 void Triangle::getSquare()
 {
 	mSquare = mSideLength * mSideLength * std::sqrt(3.0) / 4.0;
+}
+
+void Triangle::getBoundaryBox(const double factor)
+{	
+	mBoundaryHeight = mBisectrix + factor;
+	mBoundaryWidth = mSideLength + factor;
 }

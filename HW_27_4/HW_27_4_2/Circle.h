@@ -8,7 +8,8 @@ public:
     Circle(std::string, std::string, double);
     ~Circle();
 
-    void getSquare() override;    
+    void getSquare() override;
+    void getBoundaryBox(const double) override;
 
 private:
     double mRadius;
