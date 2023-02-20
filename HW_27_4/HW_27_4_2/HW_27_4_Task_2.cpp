@@ -9,8 +9,7 @@ void setColor(std::string&);
 int main()
 {
 	std::cout << "Task 2.\n";
-
-	const auto factor = 0.5;
+	
 	std::string type = "";
 	std::string color = "";
 
