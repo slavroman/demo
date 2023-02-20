@@ -1,8 +1,9 @@
+#include "Rectangle.h"
 #include "Circle.h"
 #include <iostream>
 
 Circle::Circle(std::string name, std::string color, double radius)
-    : BaseFigure(name, color), mRadius(radius)
+    : BaseFigure(name, color, 0.0, 0.0), mRadius(radius)
 {
 }
 
@@ -15,8 +16,7 @@ void Circle::getSquare()
     mSquare = mRadius * mRadius * 3.14;
 }
 
-void Circle::getBoundaryBox(const double factor)
+std::unique_ptr<Rectangle> Circle::getBoundaryBox()
 {
-    mBoundaryHeight = mRadius + factor;
-    mBoundaryWidth = mRadius + factor;
+    return std::make_unique<Rectangle>("", "", mRadius + mRadius, mRadius + mRadius);
 }

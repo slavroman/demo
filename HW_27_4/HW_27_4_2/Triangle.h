@@ -9,7 +9,7 @@ public:
     ~Triangle();
     
     void getSquare() override;
-    void getBoundaryBox(const double) override;
+    std::unique_ptr<Rectangle> getBoundaryBox() override;
 
 private:
     double mSideLength;

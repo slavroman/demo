@@ -1,22 +1,23 @@
 #pragma once
 #include <string>
 #include <vector>
+#include <memory>
+
+class Rectangle;
 
 class BaseFigure
 {
 public:	
-	BaseFigure(std::string, std::string);
+	BaseFigure(std::string, std::string, double, double);
 	virtual ~BaseFigure();
 				
 	virtual void getSquare() = 0;
-	virtual void getBoundaryBox(const double) = 0;
+	virtual std::unique_ptr<Rectangle> getBoundaryBox() = 0;
 	void printFigure();
-	void printBoundaryFigure();
 
 	std::string mType;	
 	std::string mColor;
 	double mSquare;
-	double mBoundaryHeight;
-	double mBoundaryWidth;
-	//double mCenter; // x,y
+	double mHeight;
+	double mWidth;
 };

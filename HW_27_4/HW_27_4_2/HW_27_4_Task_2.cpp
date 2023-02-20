@@ -34,11 +34,11 @@ int main()
 			double radius;
 			std::cin >> radius;
 			setColor(color);
-			auto ptrCircle = std::make_shared<Circle>(type, color, radius);
-			ptrCircle->getSquare();
-			ptrCircle->printFigure();
-			ptrCircle->getBoundaryBox(factor);
-			ptrCircle->printBoundaryFigure();	
+			Circle circle(type, color, radius);
+			circle.getSquare();
+			circle.printFigure();
+			auto ptrBoundaryRectangle = circle.getBoundaryBox();
+			ptrBoundaryRectangle->printBoundaryFigure();
 		}
 
 		if (type == "square")
@@ -47,11 +47,11 @@ int main()
 			double side;
 			std::cin >> side;
 			setColor(color);
-			auto ptrSquare = std::make_shared<Rectangle>(type, color, side, side);
-			ptrSquare->getSquare();
-			ptrSquare->printFigure();			
-			ptrSquare->getBoundaryBox(factor);
-			ptrSquare->printBoundaryFigure();
+			Rectangle square(type, color, side, side);
+			square.getSquare();
+			square.printFigure();
+			auto ptrBoundaryRectangle = square.getBoundaryBox();
+			ptrBoundaryRectangle->printBoundaryFigure();
 		}
 
 		if (type == "triangle")
@@ -60,11 +60,11 @@ int main()
 			double side;
 			std::cin >> side;
 			setColor(color);
-			auto ptrTriangle = std::make_shared<Triangle>(type, color, side);
-			ptrTriangle->getSquare();
-			ptrTriangle->printFigure();			
-			ptrTriangle->getBoundaryBox(factor);
-			ptrTriangle->printBoundaryFigure();
+			Triangle triangle(type, color, side);
+			triangle.getSquare();
+			triangle.printFigure();
+			auto ptrBoundaryRectangle = triangle.getBoundaryBox();
+			ptrBoundaryRectangle->printBoundaryFigure();
 		}
 
 		if (type == "rectangle")
@@ -73,11 +73,11 @@ int main()
 			double height, width;
 			std::cin >> height >> width;
 			setColor(color);
-			auto ptrRectangle = std::make_shared<Rectangle>(type, color, height, width);
-			ptrRectangle->getSquare();
-			ptrRectangle->printFigure();			
-			ptrRectangle->getBoundaryBox(factor);
-			ptrRectangle->printBoundaryFigure();
+			Rectangle rectangle(type, color, height, width);
+			rectangle.getSquare();
+			rectangle.printFigure();
+			auto ptrBoundaryRectangle = rectangle.getBoundaryBox();
+			ptrBoundaryRectangle->printBoundaryFigure();
 		}
 
 	} while (type != "exit");

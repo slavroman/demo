@@ -9,10 +9,6 @@ public:
     ~Rectangle();
     
     void getSquare() override;
-    void getBoundaryBox(const double) override;
-
-private:
-    double mHeight;
-    double mWidth;
+    std::unique_ptr<Rectangle> getBoundaryBox() override;
+    void printBoundaryFigure();
 };
-
