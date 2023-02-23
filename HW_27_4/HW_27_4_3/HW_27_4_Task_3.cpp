@@ -1,4 +1,7 @@
-#include "Person.h"
+#include "Head.h"
+#include "Manager.h"
+#include "Worker.h"
+#include "Team.h"
 #include <iostream>
 #include <ctime>
 
@@ -12,6 +15,8 @@ int main()
 	std::cout << "Task 3.\n";
 
 	std::srand((size_t)std::time(nullptr));
+
+	size_t teamsCount{ 0 }, workersInTeamCount{ 0 };
 
 	return 0;
 }

@@ -1,9 +1,13 @@
 #pragma once
+#include <string>
 
 class Person
 {
 public:
+	Person(std::string);
+	virtual ~Person();
 
-private:
+protected:
+	
+	std::string mName;
 };
-
