@@ -5,6 +5,15 @@
 #include <iostream>
 #include <ctime>
 
+enum class TaskType
+{
+	A,
+	B,
+	C
+};
+
+
+
 size_t randomInit(const size_t min, const size_t max)
 {
 	return (min + (rand() % static_cast<int>(max - min + 1)));
@@ -16,7 +25,7 @@ int main()
 
 	std::srand((size_t)std::time(nullptr));
 
-	size_t teamsCount{ 0 }, workersInTeamCount{ 0 };
+	std::cout << static_cast<size_t>(TaskType::A) << std::endl;
 
 	return 0;
 }

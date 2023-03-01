@@ -1,7 +1,7 @@
 #include "Person.h"
 
 Person::Person(std::string name)
-	:mName(name)
+	:mName(name), mTask(0)
 {
 }
 

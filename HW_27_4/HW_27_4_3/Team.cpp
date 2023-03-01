@@ -1,4 +1,5 @@
 #include "Team.h"
+#include <iostream>
 
 Team::Team()
     : mTeamID(ID + 1)
@@ -9,9 +10,21 @@ Team::~Team()
 {
 }
 
-void Team::addWorkerInTeam(std::unique_ptr<Worker> worker)
+void Team::addWorkersInTeam(size_t workersCount)
 {
-    mWorkers.push_back(worker);
+    if (workersCount)
+    {
+        for (size_t i = 0; i < workersCount; ++i)
+        {
+            std::shared_ptr<Worker> worker = std::make_shared<Worker>("Worker#" + std::to_string(++i));
+            mWorkers.push_back(worker);
+
+        }
+    }
+    else
+    {
+        std::cout << "Team hasn't workers!";
+    }    
 }
 
 size_t Team::getWorkersCount()

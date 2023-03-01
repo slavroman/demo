@@ -9,9 +9,6 @@ public:
     Manager(std::string, size_t, size_t);
     ~Manager();
 
-    size_t getManagerId();
-
-private:
-    size_t mID;
+    size_t setTask(size_t, size_t);
 };
 

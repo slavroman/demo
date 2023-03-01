@@ -10,4 +10,5 @@ public:
 protected:
 	
 	std::string mName;
+	size_t mTask;
 };

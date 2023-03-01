@@ -5,9 +5,9 @@ class Worker :
     public Person
 {
 public:
-    Worker();
+    Worker(std::string);
     ~Worker();
-
-private:
+    
+    bool checkWirkerBusy();
 };
 

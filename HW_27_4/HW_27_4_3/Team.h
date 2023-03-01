@@ -9,7 +9,7 @@ public:
 	Team();
 	~Team();
 
-	void addWorkerInTeam(std::unique_ptr<Worker>);
+	void addWorkersInTeam(size_t);
 
 	size_t getWorkersCount();
 	size_t getTeamId();
@@ -17,6 +17,6 @@ public:
 private:
 	static const size_t ID = 0;
 	size_t mTeamID;
-	std::vector< std::unique_ptr<Worker> > mWorkers;
+	std::vector< std::shared_ptr<Worker> > mWorkers;
 };
 

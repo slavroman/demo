@@ -1,10 +1,14 @@
 #include "Head.h"
 
-Head::Head(size_t id, std::string name)
-	:Person(id, name)
+Head::Head(std::string name)
+	:Person(name), mCommand(0)
 {
 }
 
 Head::~Head()
+{
+}
+
+void Head::setCommand(int command)
 {
 }

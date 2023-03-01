@@ -5,7 +5,12 @@ class Head :
     public Person
 {
 public:
-    Head(size_t, std::string);
+    Head(std::string);
     ~Head();
+
+    void setCommand(int);
+
+private:
+    int mCommand;
 };
 
