@@ -10,6 +10,8 @@ public:
 
     void setCommand(int);
 
+    int getCommand();
+
 private:
     int mCommand;
 };

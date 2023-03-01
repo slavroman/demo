@@ -11,4 +11,10 @@ Head::~Head()
 
 void Head::setCommand(int command)
 {
+	mCommand = command;
+}
+
+int Head::getCommand()
+{
+	return mCommand;
 }
