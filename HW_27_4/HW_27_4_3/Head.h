@@ -8,11 +8,11 @@ public:
     Head(std::string);
     ~Head();
 
-    void setCommand(int);
+    void setCommand();
 
-    int getCommand();
+    size_t getCommand();
 
 private:
-    int mCommand;
+    size_t mCommand;
 };
 

@@ -1,22 +1,27 @@
 #pragma once
-#include"Worker.h"
+
+#include "Manager.h"
+#include "Worker.h"
 #include <vector>
 #include <memory>
 
 class Team
 {
 public:
-	Team();
+	Team(std::string);
 	~Team();
 
 	void addWorkersInTeam(size_t);
+	void setTaskCount(size_t);
+	void assignTaskToWorkers();
 
 	size_t getWorkersCount();
-	size_t getTeamId();
+	size_t getTaskCount();
+	bool getTeamBusyStatus();
 
 private:
-	static const size_t ID = 0;
-	size_t mTeamID;
-	std::vector< std::shared_ptr<Worker> > mWorkers;
+	std::shared_ptr<Manager> mManager;
+	size_t mTaskCount;
+	bool mTeamBusy;
+	std::vector< std::shared_ptr<Worker> > mWorkers;	
 };
-

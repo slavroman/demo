@@ -1,14 +1,19 @@
 #pragma once
 #include "Person.h"
-#include "Team.h"
+#include "Head.h"
+#include <ctime>
 
 class Manager :
-    public Person, public Team
+    public Person
 {
 public:
-    Manager(std::string, size_t, size_t);
+    Manager(std::string);
     ~Manager();
+        
+    size_t getManagerID();
 
-    size_t setTask(size_t, size_t);
+private:
+    static const size_t mID = 0;
+    size_t mManagerID;
 };
 

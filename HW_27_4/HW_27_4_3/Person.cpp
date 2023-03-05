@@ -1,10 +1,15 @@
 #include "Person.h"
 
 Person::Person(std::string name)
-	:mName(name), mTask(0)
+	:mName(name)
 {
 }
 
 Person::~Person()
 {
+}
+
+std::string Person::getPersonName()
+{
+	return mName;
 }

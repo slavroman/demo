@@ -3,29 +3,76 @@
 #include "Worker.h"
 #include "Team.h"
 #include <iostream>
-#include <ctime>
-
-enum class TaskType
-{
-	A,
-	B,
-	C
-};
-
-
-
-size_t randomInit(const size_t min, const size_t max)
-{
-	return (min + (rand() % static_cast<int>(max - min + 1)));
-}
 
 int main()
 {
 	std::cout << "Task 3.\n";
+	
+	size_t teamCount = 0;
+	std::vector<Team> teams;
+	std::string input = "";
 
-	std::srand((size_t)std::time(nullptr));
+	std::cout << "Please input head of company name:\n";
+	std::cin >> input;
 
-	std::cout << static_cast<size_t>(TaskType::A) << std::endl;
+	Head head(input);
+
+	std::cout << "Please input amount of Teams:\n";
+	std::cin >> teamCount;
+
+	while (teamCount <= 0)
+	{
+		std::cout << "Incorrect input, please try again:\n";
+		std::cin >> teamCount;
+	}	
+
+	for (size_t i = 0; i < teamCount; ++i)
+	{
+		size_t workersCount = 0;
+
+		std::cout << "Please input manager name:\n";
+		std::cin >> input;
+
+		std::cout << "Please input amount of workers in Team:\n";
+		std::cin >> workersCount;
+
+		while (workersCount <= 0)
+		{
+			std::cout << "Incorrect input, please try again:\n";
+			std::cin >> workersCount;
+		}
+
+		Team team(input);
+		team.addWorkersInTeam(workersCount);
+		teams.push_back(team);
+	}
+
+	/*while (!isAllTeamsBusy(teams))
+	{
+		head.getCommand();
+
+
+
+	}*/
+
+	for (size_t i = 0; i < teams.size(); ++i)
+	{
+		while (!teams[i].getTeamBusyStatus())
+		{
+			head.setCommand();
+			teams[i].setTaskCount(head.getCommand());
+
+			size_t tasks = teams[i].getTaskCount();
+
+			while (tasks !=	0)
+			{
+				teams[i].assignTaskToWorkers();
+				tasks--;
+			}
+		}
+	}
+
+	std::cout << "\n*** END OF PROGRAM!!! ***\n";
 
 	return 0;
 }
