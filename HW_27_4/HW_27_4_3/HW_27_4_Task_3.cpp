@@ -47,14 +47,6 @@ int main()
 		teams.push_back(team);
 	}
 
-	/*while (!isAllTeamsBusy(teams))
-	{
-		head.getCommand();
-
-
-
-	}*/
-
 	for (size_t i = 0; i < teams.size(); ++i)
 	{
 		while (!teams[i].getTeamBusyStatus())
