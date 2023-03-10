@@ -141,6 +141,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="HW_28_4_Task_1.cpp" />
+    <ClCompile Include="Swimmer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Swimmer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
