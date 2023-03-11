@@ -4,17 +4,22 @@
 class Swimmer
 {
 public:
-	Swimmer(std::string, size_t);
+	Swimmer(std::string, double);
 	~Swimmer();
+			
+	void setDistance();
 
-	void setName(std::string);
-	void setSpeed(size_t);
-
+	size_t getTotalDistance();
 	std::string getName();
-	size_t getSpeed();
+	double getSpeed();
+	double getDistance();
+	double getTime();
+	void printSwimmerStatus();
 
 private:
+	static const size_t mTotalDistance{ 100 };
 	std::string mSwimmerName;
-	size_t mSwimSpeed;
+	double mSwimSpeed;
+	double mSwimDistance;
+	double mSwimTime;
 };
-
