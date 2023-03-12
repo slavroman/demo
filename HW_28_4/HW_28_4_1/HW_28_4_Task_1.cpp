@@ -53,7 +53,6 @@ int main()
 	{
 		t.join();
 	}
-
 	
 	info.join();
 
