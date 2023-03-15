@@ -141,6 +141,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="HW_28_4_Task_2.cpp" />
+    <ClCompile Include="Train.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Train.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
