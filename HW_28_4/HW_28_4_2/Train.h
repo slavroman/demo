@@ -1,19 +1,16 @@
 #pragma once
 #include <string>
-#include <mutex>
 
 class Train
 {
 public:
-	Train(std::string, size_t);
+	Train(char, size_t);
 	~Train();
 
-	std::string getName();
-	void move();
-	void arrived();
+	char getName();
+	size_t getTime();
 
 private:
-	std::mutex mtx;
-	std::string mName;
+	char mName;
 	size_t mTravelTime; //seconds
 };
