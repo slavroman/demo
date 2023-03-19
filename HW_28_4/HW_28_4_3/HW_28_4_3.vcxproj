@@ -140,6 +140,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="HW_28_4_Task_3.cpp" />
+    <ClCompile Include="Restaurant.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Restaurant.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
