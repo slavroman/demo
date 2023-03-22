@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{404afedf-1381-45ba-8893-74a0268d2461}</ProjectGuid>
-    <RootNamespace>HW2841</RootNamespace>
+    <ProjectGuid>{ac4da7bf-f7a9-4d09-ab98-7d3f75be0c0a}</ProjectGuid>
+    <RootNamespace>HW2941</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -140,11 +140,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="HW_28_4_Task_1.cpp" />
-    <ClCompile Include="Swimmer.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Swimmer.h" />
+    <ClCompile Include="HW_29_4_Task_1.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
