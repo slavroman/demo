@@ -140,11 +140,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Counting.cpp" />
+    <ClCompile Include="Dancing.cpp" />
     <ClCompile Include="Dog.cpp" />
     <ClCompile Include="HW_29_4_Task_1.cpp" />
+    <ClCompile Include="Swimming.cpp" />
+    <ClCompile Include="Talent.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Counting.h" />
+    <ClInclude Include="Dancing.h" />
     <ClInclude Include="Dog.h" />
+    <ClInclude Include="Swimming.h" />
+    <ClInclude Include="Talent.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
