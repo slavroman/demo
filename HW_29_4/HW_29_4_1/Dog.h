@@ -6,10 +6,7 @@
 #include <string>
 #include <memory>
 
-class Dog
-	: virtual public Swimming,
-	  virtual public Dancing,
-	  virtual public Counting
+class Dog	
 {
 public:
 	Dog(std::string);
