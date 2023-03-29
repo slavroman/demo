@@ -12,7 +12,7 @@ int main()
 	std::string openHeader{ "<h1>" }, closeHeader{ "</h1>" };	
 
 	auto posBegin = r.text.find(openHeader);
-	auto posEnd = r.text.find(closeHeader);	 
+	auto posEnd   = r.text.find(closeHeader);	 
 	
 	if (posBegin != r.text.npos && posEnd != r.text.npos)
 	{
