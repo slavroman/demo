@@ -39,7 +39,7 @@ int main()
 				auto r = cpr::Post(cpr::Url{ "http://www.httpbin.org/post" },					
 						 cpr::Payload{ argList.begin(), argList.end() });
 
-				std::cout << "Returned Text:" << r.text << std::endl;
+				std::cout << "\nReturned Text:" << r.text << std::endl;
 			}
 
 			if (key == "get")
