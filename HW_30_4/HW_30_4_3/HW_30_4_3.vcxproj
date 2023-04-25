@@ -144,6 +144,9 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="HW_30_4_Task_3.cpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="..\packages\libcpr.1.10.2\build\native\libcpr.targets" Condition="Exists('..\packages\libcpr.1.10.2\build\native\libcpr.targets')" />
