@@ -27,7 +27,7 @@ public:
 
 	Shared_ptr_toy& operator=(const Shared_ptr_toy& obj) // Copy assignment
 	{
-		resetPtr();
+		resetPtr();		
 
 		this->ptr = obj.ptr;
 		this->refCount = obj.refCount;
@@ -40,30 +40,32 @@ public:
 		return *this;
 	}
 	
-	Shared_ptr_toy(Shared_ptr_toy&& obj) // Move constructor
+	Shared_ptr_toy(Shared_ptr_toy&& obj) noexcept // Move constructor
 	{
 		this->ptr = obj.ptr;
 		this->refCount = obj.refCount;
 
-		obj.ptr = obj.refCount = nullptr;
+		obj.ptr = nullptr;
+		obj.refCount = nullptr;
 	}
 
 
-	Shared_ptr_toy& operator=(Shared_ptr_toy&& obj) // Move assignment
+	Shared_ptr_toy& operator=(Shared_ptr_toy&& obj) noexcept // Move assignment
 	{
 		resetPtr();
 
 		this->ptr = obj.ptr;
 		this->refCount = obj.refCount;
 
-		obj.ptr = obj.refCount = nullptr;
+		obj.ptr = nullptr;
+		obj.refCount = nullptr;		
 
 		return *this;
 	}	
 
 	size_t getCount() const
 	{
-		return *refCount; // *this->refCount
+		return *refCount;
 	}
 
 	T* get() const
@@ -90,11 +92,9 @@ private:
 	T* ptr = nullptr;
 	size_t* refCount = nullptr;
 
-	void resetPtr() // Cleanup any existing data
+	void resetPtr()
 	{
-		(*refCount)--;
-
-		if (*refCount == 0)
+		if (refCount == nullptr)
 		{
 			if (ptr != nullptr)
 			{
@@ -102,6 +102,10 @@ private:
 			}
 
 			delete refCount;
+		}
+		else
+		{
+			(*refCount)--;
 		}
 	}
 };

@@ -1,31 +1,62 @@
-//#include"Toy.h"
 #include "Shared_ptr_toy.h"
 #include <iostream>
+#include <string>
 
-class Box
+class Toy
 {
-public:	
-	Box()
-		: length(0), width(0), height(0)
+public:
+	Toy()
+		: m_name("Unknown")
 	{
 	}
 
-	int length, width, height;
+	Toy(std::string name)
+		: m_name(name)
+	{
+	}
+
+	void setName(std::string name)
+	{
+		m_name = name;
+	}
+
+	std::string getName()
+	{
+		return m_name;/* << std::endl;*/
+	}
+
+private:
+	std::string m_name;
+};
+
+
+Shared_ptr_toy<Toy> make_shared_toy(std::string name)
+{	
+	Shared_ptr_toy<Toy> ptr(new Toy(name));	
+	return ptr;
+};
+
+Shared_ptr_toy<Toy> make_shared_toy(Toy& toy)
+{	
+	Shared_ptr_toy<Toy> ptr(&toy);	
+	return ptr;
 };
 
 int main()
 {
 	std::cout << "Task 1.\n";
+
+	Toy bear("Bear");
 		
-	Shared_ptr_toy<Box> obj;
-	std::cout << obj.getCount() << std::endl; // prints 0
+	auto obj = make_shared_toy("Bone");
+	std::cout << "Count of Shared_ptr_toy(" << obj->getName() << ")" << obj.getCount() << std::endl;
 
-	Shared_ptr_toy<Box> box1(new Box());
-	std::cout << box1.getCount() << std::endl; // prints 1
-
-	Shared_ptr_toy<Box> box2(box1); // calls copy constructor
-	std::cout << box1.getCount() << std::endl; // prints 2
-	std::cout << box2.getCount() << std::endl; // also prints 2
+	auto obj2 = make_shared_toy(bear);
+	std::cout << "Count of Shared_ptr_toy(" << obj2->getName() << ")" << obj2.getCount() << std::endl;
+	
+	auto obj3(obj2);
+	std::cout << "Count of Shared_ptr_toy(" << obj2->getName() << ")" << obj2.getCount() << std::endl;
+	std::cout << "Count of Shared_ptr_toy(" << obj3->getName() << ")" << obj3.getCount() << std::endl;
 
 	return 0;
 }
