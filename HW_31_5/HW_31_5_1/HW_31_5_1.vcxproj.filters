@@ -18,12 +18,9 @@
     <ClCompile Include="HW_31_5_Task_1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Toy.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Toy.h">
+    <ClInclude Include="Shared_ptr_toy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
