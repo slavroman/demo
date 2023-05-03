@@ -104,8 +104,6 @@ private:
 			}
 
 			delete refCount;
-
-			return;
-		}		
+		}
 	}
 };
