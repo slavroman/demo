@@ -1,4 +1,5 @@
 #include "Shared_ptr_toy.h"
+//#include "Shared_ptr_toy_v2.h"
 #include <iostream>
 #include <string>
 
@@ -56,6 +57,7 @@ int main()
 	auto obj3(obj2);
 	std::cout << "Count of Shared_ptr_toy(" << obj2->getName() << ")" << obj2.getCount() << std::endl;
 	std::cout << "Count of Shared_ptr_toy(" << obj3->getName() << ")" << obj3.getCount() << std::endl;
+
 
 	return 0;
 }

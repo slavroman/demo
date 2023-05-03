@@ -1,5 +1,7 @@
 #pragma once
 
+#include <string_view>
+
 template<class T>
 class Shared_ptr_toy
 {
@@ -18,6 +20,7 @@ public:
 	{
 		this->ptr = obj.ptr;
 		this->refCount = obj.refCount;
+		
 
 		if (obj.ptr != nullptr)
 		{
@@ -43,7 +46,7 @@ public:
 	Shared_ptr_toy(Shared_ptr_toy&& obj) noexcept // Move constructor
 	{
 		this->ptr = obj.ptr;
-		this->refCount = obj.refCount;
+		this->refCount = obj.refCount;		
 
 		obj.ptr = nullptr;
 		obj.refCount = nullptr;
@@ -85,7 +88,7 @@ public:
 
 	~Shared_ptr_toy()
 	{
-		resetPtr();
+		resetPtr();		
 	}
 
 private:
@@ -93,7 +96,7 @@ private:
 	size_t* refCount = nullptr;
 
 	void resetPtr()
-	{		
+	{
 		(*refCount)--;
 
 		if (*refCount == 0)
