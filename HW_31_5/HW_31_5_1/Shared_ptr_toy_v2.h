@@ -23,6 +23,7 @@ public:
         if (*refCount == 0)
         {
             delete ptr;
+            delete refCount;
         }
     }
 
