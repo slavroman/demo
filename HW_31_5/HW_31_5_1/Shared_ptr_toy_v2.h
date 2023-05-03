@@ -33,6 +33,12 @@ public:
         ++(*refCount);
     }
 
+    void swap(Shared_ptr_toy& other) noexcept
+    {
+        std::swap(ptr, other.ptr);
+        std::swap(refCount, other.refCount);
+    }
+
     Shared_ptr_toy& operator=(Shared_ptr_toy obj)
     {
         obj.swap(*this);
@@ -76,10 +82,4 @@ public:
 private:
 	T* ptr;
     size_t* refCount;
-
-    void swap(Shared_ptr_toy& other) noexcept
-    {
-        std::swap(ptr, other.ptr);
-        std::swap(refCount, other.refCount);
-    }
 };
