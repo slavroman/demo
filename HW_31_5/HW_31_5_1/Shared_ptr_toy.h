@@ -5,13 +5,13 @@ class Shared_ptr_toy
 {
 public:
 	Shared_ptr_toy()
-		: ptr(nullptr), refCount(new size_t(0))
+		: ptr(nullptr), refCount(nullptr)
 	{
 	}
 
 	Shared_ptr_toy(T* obj)
 		: ptr(obj), refCount(new size_t(1))
-	{
+	{		
 	}
 	
 	Shared_ptr_toy(const Shared_ptr_toy& obj) // Copy constructor
@@ -35,7 +35,7 @@ public:
 		if (obj.ptr != nullptr)
 		{
 			(*this->refCount)++;
-		}		
+		}
 
 		return *this;
 	}
@@ -55,7 +55,7 @@ public:
 		resetPtr();
 
 		this->ptr = obj.ptr;
-		this->refCount = obj.refCount;
+		this->refCount = obj.refCount;		
 
 		obj.ptr = nullptr;
 		obj.refCount = nullptr;		
@@ -93,8 +93,10 @@ private:
 	size_t* refCount = nullptr;
 
 	void resetPtr()
-	{
-		if (refCount == nullptr)
+	{		
+		(*refCount)--;
+
+		if (*refCount == 0)
 		{
 			if (ptr != nullptr)
 			{
@@ -102,10 +104,8 @@ private:
 			}
 
 			delete refCount;
-		}
-		else
-		{
-			(*refCount)--;
-		}
+
+			return;
+		}		
 	}
 };

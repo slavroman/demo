@@ -22,13 +22,12 @@ public:
 
 	std::string getName()
 	{
-		return m_name;/* << std::endl;*/
+		return m_name;
 	}
 
 private:
 	std::string m_name;
 };
-
 
 Shared_ptr_toy<Toy> make_shared_toy(std::string name)
 {	
