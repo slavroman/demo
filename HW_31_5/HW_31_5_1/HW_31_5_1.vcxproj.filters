@@ -23,8 +23,5 @@
     <ClInclude Include="Shared_ptr_toy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Shared_ptr_toy_v2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

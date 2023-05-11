@@ -1,5 +1,4 @@
 #include "Shared_ptr_toy.h"
-//#include "Shared_ptr_toy_v2.h"
 #include <iostream>
 #include <string>
 
