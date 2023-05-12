@@ -145,7 +145,7 @@
     <ClCompile Include="HW_31_5_Task_1.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Shared_ptr_toy.h" />
+    <ClInclude Include="SharedSmartPointer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

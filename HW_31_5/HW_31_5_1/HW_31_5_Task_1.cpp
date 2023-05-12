@@ -1,4 +1,4 @@
-#include "Shared_ptr_toy.h"
+#include "SharedSmartPointer.h"
 #include <iostream>
 #include <string>
 
@@ -6,57 +6,47 @@ class Toy
 {
 public:
 	Toy()
-		: m_name("Unknown")
+		: m_id(++counter), m_str("Unknown toy")
 	{
+		std::cout << "Default Constructor " << m_str << " id: " << m_id << " called\n";
 	}
 
-	Toy(std::string name)
-		: m_name(name)
+	Toy(std::string str)
+		: m_id(++counter), m_str(str)
 	{
+		std::cout << "Constructor " << m_str << " id: " << m_id << " called\n";
 	}
 
-	void setName(std::string name)
+	~Toy()
 	{
-		m_name = name;
-	}
-
-	std::string getName()
-	{
-		return m_name;
+		std::cout << "Destructor " << m_str << " id: " << m_id << " called\n";
 	}
 
 private:
-	std::string m_name;
-};
-
-Shared_ptr_toy<Toy> make_shared_toy(std::string name)
-{	
-	Shared_ptr_toy<Toy> ptr(new Toy(name));	
-	return ptr;
-};
-
-Shared_ptr_toy<Toy> make_shared_toy(Toy& toy)
-{	
-	Shared_ptr_toy<Toy> ptr(&toy);	
-	return ptr;
+	inline static int counter = 0;
+	const int m_id;
+	std::string m_str;
 };
 
 int main()
 {
 	std::cout << "Task 1.\n";
 
-	Toy bear("Bear");
-		
-	auto obj = make_shared_toy("Bone");
-	std::cout << "Count of Shared_ptr_toy(" << obj->getName() << ")" << obj.getCount() << std::endl;
+	Toy test("Bone");
 
-	auto obj2 = make_shared_toy(bear);
-	std::cout << "Count of Shared_ptr_toy(" << obj2->getName() << ")" << obj2.getCount() << std::endl;
-	
-	auto obj3(obj2);
-	std::cout << "Count of Shared_ptr_toy(" << obj2->getName() << ")" << obj2.getCount() << std::endl;
-	std::cout << "Count of Shared_ptr_toy(" << obj3->getName() << ")" << obj3.getCount() << std::endl;
+	auto a = make_my_shared_ptr<Toy>(test);
+	std::cout << "refCount a = " << a.use_count() << "\n";
 
+	MySharedPtr<Toy> b = a;
+	std::cout << "refCount a = " << a.use_count() << "\n";
+	std::cout << "refCount b = " << b.use_count() << "\n";
+
+	std::string str{ "Bear" };
+
+	auto c = make_my_shared_ptr<Toy>(str);
+	a = c;
+	std::cout << "refCount a = " << a.use_count() << "\n";
+	std::cout << "refCount c = " << c.use_count() << "\n";
 
 	return 0;
 }

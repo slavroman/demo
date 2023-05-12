@@ -20,7 +20,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Shared_ptr_toy.h">
+    <ClInclude Include="SharedSmartPointer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
