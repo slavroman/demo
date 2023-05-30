@@ -140,6 +140,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="HW_31_5_Task_2.cpp" />
+    <ClCompile Include="ListGraph.cpp" />
+    <ClCompile Include="MatrixGraph.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="IGraph.h" />
+    <ClInclude Include="ListGraph.h" />
+    <ClInclude Include="MatrixGraph.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
