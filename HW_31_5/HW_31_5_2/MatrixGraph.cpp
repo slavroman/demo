@@ -1,5 +1,5 @@
-#include <iostream>
 #include "MatrixGraph.h"
+#include <iostream>
 
 MatrixGraph::MatrixGraph()
 {
@@ -53,8 +53,7 @@ void MatrixGraph::GetNextVertices(int vertex, std::vector<int>& vertices) const
 	else
 	{				
 		for (size_t i = 0; i < m_matrix.size(); i++)
-		{
-			
+		{			
 			if (m_matrix[vertex][i] > 0)
 			{
 				vertices.push_back(i + 1);

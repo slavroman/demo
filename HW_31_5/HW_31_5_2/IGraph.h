@@ -1,7 +1,6 @@
 // Abstract graph interface
 
 #pragma once
-
 #include <vector>
 
 class IGraph
