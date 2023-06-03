@@ -1,7 +1,7 @@
 #pragma once
 
-#include <memory>
 #include "IGraph.h"
+#include <vector>
 
 class MatrixGraph :
     public IGraph
@@ -20,4 +20,3 @@ private:
     std::vector<std::vector<int>> m_matrix;    
     void resizeMatrix(int from, int to);
 };
-

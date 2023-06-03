@@ -19,4 +19,3 @@ public:
 private:
     std::vector<std::vector<int>> m_adjacencyList;
 };
-
