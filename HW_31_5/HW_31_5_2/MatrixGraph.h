@@ -16,8 +16,7 @@ public:
     void GetPrevVertices(int vertex, std::vector<int>& vertices) const override;
     void Show() const override;
 
-private:
-    int m_verticesCount;
+private:    
     std::vector<std::vector<int>> m_matrix;    
     void resizeMatrix(int from, int to);
 };

@@ -2,30 +2,37 @@
 #include "MatrixGraph.h"
 
 MatrixGraph::MatrixGraph()
-	: m_verticesCount(0)
 {
 }
 
 MatrixGraph::MatrixGraph(IGraph* other)
 {
+	if (other->VerticesCount() > VerticesCount())
+	{
+		resizeMatrix(other->VerticesCount(), other->VerticesCount());
+	}
+	
 	for (size_t i = 0; i < VerticesCount(); i++)
 	{
 		std::vector<int> vertices;
-		GetNextVertices(i, vertices);
 
+		other->GetNextVertices(i + 1, vertices);
+				
 		for (size_t j = 0; j < vertices.size(); j++)
-		{
-			AddEdge(i, j);
-		}
-	}
+		{			
+			AddEdge(i + 1, vertices[j]);
+		}		
+	}	
 }
 
 void MatrixGraph::AddEdge(int from, int to)
 {
-	if (m_matrix.size() < from + 1 || m_matrix.size() < to + 1)
+	if (m_matrix.size() < from || m_matrix.size() < to)
 	{
-		resizeMatrix(from + 1, to + 1);
+		resizeMatrix(from, to);
 	}	
+
+	--from, --to;
 
 	m_matrix[from][to] = 1;	
 }
@@ -37,7 +44,9 @@ int MatrixGraph::VerticesCount() const
 
 void MatrixGraph::GetNextVertices(int vertex, std::vector<int>& vertices) const
 {
-	if (vertex < 0 || vertex > vertices.size())
+	--vertex;
+
+	if (vertex < 0 || vertex > m_matrix.size())
 	{
 		std::cout << "Out of range!\n";
 	}
@@ -48,7 +57,7 @@ void MatrixGraph::GetNextVertices(int vertex, std::vector<int>& vertices) const
 			
 			if (m_matrix[vertex][i] > 0)
 			{
-				vertices.push_back(i);
+				vertices.push_back(i + 1);
 			}			
 		}
 	}
@@ -56,7 +65,9 @@ void MatrixGraph::GetNextVertices(int vertex, std::vector<int>& vertices) const
 
 void MatrixGraph::GetPrevVertices(int vertex, std::vector<int>& vertices) const
 {
-	if (vertex < 0 || vertex > vertices.size())
+	--vertex;
+
+	if (vertex < 0 || vertex >  m_matrix.size())
 	{
 		std::cout << "Out of range!\n";
 	}
@@ -67,7 +78,7 @@ void MatrixGraph::GetPrevVertices(int vertex, std::vector<int>& vertices) const
 
 			if (m_matrix[i][vertex] > 0)
 			{
-				vertices.push_back(i);
+				vertices.push_back(i + 1);
 			}
 		}
 	}
