@@ -27,9 +27,13 @@ ListGraph::ListGraph(IGraph* other)
 
 void ListGraph::AddEdge(int from, int to)
 {
-	if (m_adjacencyList.size() < from)
+	size_t row{ 0 };
+
+	(from > to) ? row = from : row = to;
+
+	if (m_adjacencyList.size() < row)
 	{
-		m_adjacencyList.resize(from);
+		m_adjacencyList.resize(row);
 	}	
 	
 	--from, --to;

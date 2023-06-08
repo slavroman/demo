@@ -35,25 +35,25 @@ int main()
 
 	a->Show();
 
-	/*testObject(a, 1, 2);
-	testObject(a, 5, 3);*/
+	//testObject(a, 10, 11);
+	//testObject(a, 11, 10);
 	
 	std::cout << "\n----------MatrixGraph----------\n";
 	IGraph* d = new MatrixGraph(a);
 
 	d->Show();
 
-	/*testObject(d, 1, 2);
-	testObject(d, 5, 3);*/
+	//testObject(d, 1, 2);
+	//testObject(d, 5, 3);
 
 	std::cout << "\n-----------ListGraph-----------\n";
 	IGraph* c = new ListGraph(d);
 
 	c->Show();
 
-	/*testObject(c, 1, 2);
-	testObject(c, 5, 3);*/
-
+	//testObject(c, 1, 2);
+	//testObject(c, 5, 3);
+	
 	return 0;
 };
 
