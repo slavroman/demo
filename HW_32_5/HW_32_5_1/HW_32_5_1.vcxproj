@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{aac6e98b-a99d-45d6-a45c-bb55f6e76e55}</ProjectGuid>
-    <RootNamespace>HW3152</RootNamespace>
+    <ProjectGuid>{e6eeb3ff-56c5-4ed8-9829-6b4d5fc9bf9b}</ProjectGuid>
+    <RootNamespace>HW3251</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -116,7 +116,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -140,14 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="HW_31_5_Task_2.cpp" />
-    <ClCompile Include="ListGraph.cpp" />
-    <ClCompile Include="MatrixGraph.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="IGraph.h" />
-    <ClInclude Include="ListGraph.h" />
-    <ClInclude Include="MatrixGraph.h" />
+    <ClCompile Include="HW_32_5_Task_1.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
