@@ -304,7 +304,8 @@ void readFromFile(ordered_json& j)
 
 void searchInJson(ordered_json& j)
 {
-	ordered_json resultJson{};	
+	ordered_json resultJson{};
+	std::string resultStar{};
 	std::string actor{};
 
 	std::cout << "Please enter actor's name or surname for search:\n";
@@ -340,7 +341,7 @@ void searchInJson(ordered_json& j)
 		}
 	}
 
-	(resultJson.empty()) ? std::cout << "Actor not found!\n" : std::cout << resultJson.dump(4) << '\n';	
+	(resultStar.empty()) ? std::cout << "Actor not found!\n" : std::cout << resultJson.dump(4) << '\n';
 }
 
 void printMovieCardJson(ordered_json& j)
