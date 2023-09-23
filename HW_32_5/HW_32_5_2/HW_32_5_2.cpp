@@ -322,7 +322,7 @@ void searchInJson(ordered_json& j)
 				std::string character = elem["character"].get<std::string>();
 				std::string title = obj["title"].get<std::string>();
 
-				std::string resultStar = name + ' ' + surname;
+				resultStar = name + ' ' + surname;
 				std::string resultMovieAndCharacter = title + " (" + character + ')';
 
 				if (resultJson.contains("star"))
